@@ -1,0 +1,14 @@
+{% comment %} {% extends 'main/layout.html' %}
+
+{% block title %}Удаление статьи{% endblock %}
+
+{% block content %}
+<div class = 'features'>
+    <h1>Удалите запись</h1>
+    <form method='POST' action = '{% url 'delete' article.id %}'>
+        {% csrf_token %}
+        <button class = 'btn btn-success' type = 'submit'>Удалить статью</button>
+
+    </form>
+</div>
+{% endblock %} {% endcomment %}

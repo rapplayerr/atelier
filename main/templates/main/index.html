@@ -1,0 +1,66 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block meta_description %}{{ meta_description }}{% endblock %}
+{% block meta_keywords %}{{ meta_keywords }}{% endblock %}
+
+{% block content%}
+<main>
+    <!-- 1. Hero секция -->
+    <section class="hero">
+        <div class="container">
+            <h1>{{ hero_title }}</h1>
+            <p class="subtitle">{{ hero_subtitle }}</p>
+            
+            <div class="schedule">
+                <!-- Будни -->
+                <div class="schedule-row">
+                    <div class="schedule-days">Пн - Чт</div>
+                    <div class="schedule-time">10:00 - 18:00</div>
+                </div>
+                
+                <!-- Пятница (сокращенный день) -->
+                <div class="schedule-row">
+                    <div class="schedule-days schedule-days--short">Пятница</div>
+                    <div class="schedule-time">10:00 - 16:00</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Преимущества -->
+    <section class="advantages">
+        <div class="container">
+            <h2>Наши преимущества</h2>
+            <div class="advantages-grid">
+                {% for advantage in advantages %}
+                <div class="advantage-item">
+                    <div class="advantage-icon">{{ advantage.icon }}</div>
+                    <h3>{{ advantage.title }}</h3>
+                    <p>{{ advantage.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Популярные услуги (добавил обратно, так как они нужны для наполнения) -->
+    <section class="featured-services">
+        <div class="container">
+            <h2>Наши услуги</h2>
+            <div class="services-grid">
+                {% for service in featured_services %}
+                <div class="service-card">
+                    <h3>{{ service.name }}</h3>
+                    <p>{{ service.description }}</p>
+                    <p class="price">{{ service.price }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="text-center">
+                <a href="{% url 'services_list' %}" class="btn btn-secondary">Смотреть все услуги</a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
