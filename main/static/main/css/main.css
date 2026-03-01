@@ -289,17 +289,17 @@ main .features p {max-width: 420px; margin: 20px auto;}
 }
 
 .advantage-item:hover {
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); */
     box-shadow: 0 10px 25px rgba(44, 62, 80, 0.08);
     border-color: rgba(200, 180, 150, 0.3);
 }
 
 /* Иконка */
-.advantage-icon {
+/* .advantage-icon {
     font-size: 3rem;
     margin-bottom: 1.5rem;
     line-height: 1;
-}
+} */
 
 /* Заголовок преимущества */
 .advantage-item h3 {

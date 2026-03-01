@@ -35,7 +35,7 @@
             <div class="advantages-grid">
                 {% for advantage in advantages %}
                 <div class="advantage-item">
-                    <div class="advantage-icon">{{ advantage.icon }}</div>
+                    <!-- <div class="advantage-icon">{{ advantage.icon }}</div> -->
                     <h3>{{ advantage.title }}</h3>
                     <p>{{ advantage.description }}</p>
                 </div>
@@ -49,12 +49,13 @@
         <div class="container">
             <h2>Наши услуги</h2>
             <div class="services-grid">
-                {% for service in featured_services %}
-                <div class="service-card">
-                    <h3>{{ service.name }}</h3>
-                    <p>{{ service.description }}</p>
-                    <p class="price">{{ service.price }}</p>
-                </div>
+                {% for category in categories %}
+                <a href="{% url 'category_detail' category.slug %}" class="service-card-link">
+                    <div class="service-card">
+                        <h3>{{ category.name }}</h3>
+                        <p>{{ category.description }}</p>
+                    </div>
+                </a>
                 {% endfor %}
             </div>
             <div class="text-center">
