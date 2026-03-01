@@ -4,11 +4,6 @@
 {% block content %}
 <section class="category-detail-page">
     <div class="container">
-        <!-- Навигация -->
-        <div class="breadcrumbs">
-            {% comment %} <a href="{% url 'services_list' %}">Все услуги</a> /  {% endcomment %}
-            <span>{{ category.name }}</span>
-        </div>
        
         <!-- Заголовок категории -->
         <div class="category-header">
@@ -34,12 +29,6 @@
                     <span class="price">{{ service.price }}</span>
                 </div>
                 {% endif %}
-                
-                {% comment %} {% if service.slug %}
-                <a href="{% url 'service_detail' category.slug service.slug %}" class="service-link">
-                    Подробнее →
-                </a>
-                {% endif %} {% endcomment %}
             </div>
             {% empty %}
             <p>В этой категории пока нет услуг</p>

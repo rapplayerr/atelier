@@ -11,27 +11,12 @@
             <a href="{{ category.get_absolute_url }}" class="category-card">
                 <div class="category-header">
                     <h3>{{ category.name }}</h3>
-                    {% comment %} {% if category.services.all %}
-                    <span class="services-count">{{ category.services.all|length }} услуг</span>
-                    {% endif %} {% endcomment %}
                 </div>
                 
                 {% if category.description %}
                 <p class="category-description">{{ category.description|truncatechars:100 }}</p>
                 {% endif %}
                 
-                {% comment %} <div class="services-preview">
-                    {% for service in category.services.all|slice:":3" %}
-                    <div class="preview-item">
-                        <span>{{ service.name|truncatechars:25 }}</span>
-                        {% if service.price %}
-                        <span class="preview-price">{{ service.price }}</span>
-                        {% endif %}
-                    </div>
-                    {% endfor %}
-                </div> {% endcomment %}
-                
-                {% comment %} <span class="category-link">Все услуги →</span> {% endcomment %}
             </a>
             {% empty %}
             <p>Категории услуг скоро появятся</p>

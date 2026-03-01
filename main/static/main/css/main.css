@@ -368,7 +368,424 @@ main .features p {max-width: 420px; margin: 20px auto;}
     }
 }
 
+/* ===== БЛОК УСЛУГ (в стиле преимуществ) ===== */
+.featured-services {
+    padding: 4rem 0;
+    backdrop-filter: blur(2px);
+}
 
+.featured-services h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 0.5px;
+}
+
+/* Сетка услуг (как у преимуществ) */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;  /* снизу отступ для кнопки */
+    padding: 0 1rem;
+}
+
+/* Карточка категории (как advantage-item) */
+.service-card-link {
+    text-decoration: none;
+    display: block;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(2px);
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(200, 180, 150, 0.1);
+    box-shadow: 0 5px 15px rgba(44, 62, 80, 0.03);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    box-shadow: 0 10px 25px rgba(44, 62, 80, 0.08);
+    border-color: rgba(200, 180, 150, 0.3);
+}
+
+/* Заголовок категории */
+.service-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+/* Описание категории */
+.service-card p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #5a5a5a;
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Кнопка "Смотреть все услуги" (оставляем как есть) */
+.featured-services .btn-secondary {
+    /* ваши существующие стили кнопки */
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    /* остальное не трогаем */
+}
+
+/* Адаптивность (как у преимуществ) */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .featured-services {
+        padding: 3rem 0;
+    }
+    
+    .featured-services h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 400px;
+    }
+    
+    .service-card {
+        padding: 1.8rem 1.2rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-services {
+        padding: 2rem 0;
+    }
+    
+    .featured-services h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+
+/* ===== СТРАНИЦА СО СПИСКОМ КАТЕГОРИЙ ===== */
+.services-list-page {
+    padding: 4rem 0;
+    backdrop-filter: blur(2px);
+    min-height: 60vh;
+}
+
+.services-list-page h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 0.5px;
+}
+
+/* Сетка категорий (как у преимуществ и услуг) */
+.services-list-page .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Карточка категории (в стиле advantage-item) */
+.services-list-page .category-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(2px);
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(200, 180, 150, 0.1);
+    box-shadow: 0 5px 15px rgba(44, 62, 80, 0.03);
+    text-decoration: none;
+    display: block;
+    height: 100%;
+}
+
+.services-list-page .category-card:hover {
+    box-shadow: 0 10px 25px rgba(44, 62, 80, 0.08);
+    border-color: rgba(200, 180, 150, 0.3);
+}
+
+/* Заголовок категории */
+.services-list-page .category-header h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+/* Описание категории */
+.services-list-page .category-description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #5a5a5a;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Адаптивность (как у преимуществ) */
+@media (max-width: 1024px) {
+    .services-list-page .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-list-page {
+        padding: 3rem 0;
+    }
+    
+    .services-list-page h1 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .services-list-page .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 400px;
+    }
+    
+    .services-list-page .category-card {
+        padding: 1.8rem 1.2rem;
+    }
+    
+    .services-list-page .category-header h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-list-page {
+        padding: 2rem 0;
+    }
+    
+    .services-list-page h1 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ===== СТРАНИЦА КАТЕГОРИИ ===== */
+.category-detail-page {
+    padding: 4rem 0;
+    backdrop-filter: blur(2px);
+    min-height: 60vh;
+}
+
+/* Заголовок категории */
+.category-detail-page .category-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.category-detail-page .category-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.category-detail-page .category-description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #5a5a5a;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Список услуг в виде таблицы */
+.category-detail-page .services-list {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.1);
+    background: white;
+}
+
+/* Строка услуги (как schedule-row) */
+.category-detail-page .service-item {
+    display: flex;
+    border-bottom: 1px solid rgba(44, 62, 80, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.category-detail-page .service-item:last-child {
+    border-bottom: none;
+}
+
+.category-detail-page .service-item:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Левая колонка - название и описание (как schedule-days) */
+.category-detail-page .service-info {
+    flex: 2;
+    padding: 1.5rem 2rem;
+    background-color: #ffffff;
+    border-right: 1px solid rgba(44, 62, 80, 0.1);
+}
+
+.category-detail-page .service-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.category-detail-page .service-description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #5a5a5a;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Правая колонка - цена (как schedule-time) */
+.category-detail-page .service-price {
+    flex: 1;
+    padding: 1.5rem 2rem;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.category-detail-page .price {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #2c3e50;
+    white-space: nowrap;
+}
+
+
+/* Сообщение об отсутствии услуг */
+.category-detail-page .services-list p {
+    text-align: center;
+    padding: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #5a5a5a;
+    background: white;
+    margin: 0;
+}
+
+/* Адаптивность (как у расписания) */
+@media (max-width: 768px) {
+    .category-detail-page {
+        padding: 3rem 0;
+    }
+    
+    .category-detail-page .category-header h1 {
+        font-size: 2rem;
+    }
+    
+    .category-detail-page .service-info,
+    .category-detail-page .service-price {
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .category-detail-page .service-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .category-detail-page .price {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .category-detail-page .service-item {
+        flex-direction: column;
+    }
+    
+    .category-detail-page .service-info {
+        border-right: none;
+        border-bottom: 1px solid rgba(44, 62, 80, 0.1);
+        padding: 1.2rem 1.5rem 0.8rem;
+    }
+    
+    .category-detail-page .service-price {
+        padding: 0.8rem 1.5rem 1.2rem;
+        justify-content: flex-start;
+    }
+    
+    .category-detail-page .service-info h3 {
+        margin-bottom: 0.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-detail-page .category-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .category-detail-page .category-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .category-detail-page .service-info,
+    .category-detail-page .service-price {
+        padding: 1rem 1.2rem;
+    }
+    
+    .category-detail-page .service-info h3 {
+        font-size: 1rem;
+    }
+    
+    .category-detail-page .service-description {
+        font-size: 0.9rem;
+    }
+    
+    .category-detail-page .price {
+        font-size: 1rem;
+    }
+}
 
 
 
