@@ -1,8 +1,13 @@
 from django.shortcuts import render
-from service.utils import get_chosen_categories
+from service.models import Category
 
 def glavnaya(request):
-    chosen_categories = get_chosen_categories(3)
+    
+    categories = Category.objects.filter(
+        id__in = [1,2,3,4],
+        is_visible=True
+    )
+    
     data = {
         
         # Герой (Hero) секция
@@ -21,6 +26,7 @@ def glavnaya(request):
             {'icon': '✂️', 'title': 'Опыт 10+ лет', 'description': 'Мастера с многолетним стажем'},
             {'icon': '⏰', 'title': 'Точные сроки', 'description': 'Всегда сдаем работу вовремя'},
         ],
+        'categories': categories
         
     }
     return render(request, 'main/index.html',data)
