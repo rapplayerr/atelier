@@ -157,14 +157,14 @@ main .features p {max-width: 420px; margin: 20px auto;}
     font-weight: 500;
     font-size: 1.1rem;
     color: #2c3e50;
-    background-color: #ffffff;  /* белая колонка для дней */
+    background-color: rgba(255, 255, 255, 0.7);  /* белая колонка для дней */
     text-align: left;
     border-right: 1px solid rgba(44, 62, 80, 0.1);
 }
 
 /* Сокращенный день (пятница) - красная колонка */
 .schedule-days--short {
-    background-color: #ffffff;  /* очень светлый красный */
+    background-color: rgba(255, 255, 255, 0.7);  /* очень светлый красный */
     font-weight: 500;
     position: relative;
 }
@@ -187,7 +187,7 @@ main .features p {max-width: 420px; margin: 20px auto;}
     font-weight: 400;
     font-size: 1.1rem;
     color: #2c3e50;
-    background-color: #ffffff;  /* всегда белая */
+    background-color: rgba(255, 255, 255, 0.7); /* всегда белая */
     text-align: right;
 }
 
@@ -642,7 +642,7 @@ main .features p {max-width: 420px; margin: 20px auto;}
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(44, 62, 80, 0.1);
-    background: white;
+    background: rgba(255, 255, 255, 0.7);
 }
 
 /* Строка услуги (как schedule-row) */
@@ -664,7 +664,7 @@ main .features p {max-width: 420px; margin: 20px auto;}
 .category-detail-page .service-info {
     flex: 2;
     padding: 1.5rem 2rem;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.7);
     border-right: 1px solid rgba(44, 62, 80, 0.1);
 }
 
@@ -689,7 +689,7 @@ main .features p {max-width: 420px; margin: 20px auto;}
 .category-detail-page .service-price {
     flex: 1;
     padding: 1.5rem 2rem;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.7);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -710,7 +710,7 @@ main .features p {max-width: 420px; margin: 20px auto;}
     padding: 3rem;
     font-family: 'Montserrat', sans-serif;
     color: #5a5a5a;
-    background: white;
+    background: rgba(255, 255, 255, 0.7);
     margin: 0;
 }
 
@@ -804,15 +804,20 @@ footer .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+/* Флекс-контейнер для двух колонок */
+.footer {
     display: flex;
-    justify-content: space-between;  /* Оставляем распределение */
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 2rem;
 }
 
-/* Левая часть с контактами */
+/* Левая колонка с соцсетями */
 .footer-info {
-    flex: 0 1 auto;
+    flex: 1 1 300px;
+    min-width: 250px;
 }
 
 .footer-info h3 {
@@ -824,59 +829,22 @@ footer .container {
     opacity: 0.95;
 }
 
-.footer-info p {
-    margin: 0.8rem 0;
-    font-size: 1rem;
-    line-height: 1.6;
-    opacity: 0.85;
-    transition: opacity 0.2s ease;
-    display: flex;
-    align-items: center;
-}
-
-.footer-info p:hover {
-    opacity: 1;
-}
-
-/* Можно добавить иконки перед контактами */
-.footer-info p::before {
-    content: "•";
-    margin-right: 10px;
-    color: #ffd700;
-    font-size: 1.2rem;
-}
-
-/* Правая часть с соцсетями */
-.footer-social {
-    flex: 0 1 auto;
-    /* Убираем text-align: right */
-}
-
-.footer-social h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    /* Убираем text-align: right, теперь по левому краю */
-}
-
-.footer-social a {
+/* Ссылки на соцсети */
+.footer-info a {
     color: #ffffff;
     text-decoration: none;
     font-size: 1rem;
     opacity: 0.85;
-    transition: all 0.3s ease;
     display: inline-block;
-    margin: 0.5rem 0;
-    padding: 0.3rem 0;
-    /* Убираем text-align: right */
+    margin-bottom: 12px;
+    transition: opacity 0.2s ease;
 }
 
-.footer-social a:hover {
+.footer-info a:hover {
     opacity: 1;
-    transform: translateX(5px);  /* Возвращаем обычный hover вправо */
 }
 
+/* Иконки соцсетей */
 .social-icon {
     display: inline-block;
     margin-right: 10px;
@@ -887,11 +855,46 @@ footer .container {
     line-height: 32px;
     text-align: center;
     border-radius: 50%;
-    transition: background 0.3s ease;
+    transition: background 0.2s ease;
 }
 
-.footer-social a:hover .social-icon {
+.footer-info a:hover .social-icon {
     background: rgba(255, 255, 255, 0.2);
+}
+
+/* Правая колонка с картой */
+.footer-social {
+    flex: 1 1 300px;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Прижимаем содержимое к правому краю */
+}
+
+.footer-social h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    opacity: 0.95;
+    width: 100%;
+    text-align: right; /* Текст заголовка прижат к правому краю */
+}
+
+/* Контейнер для карты */
+.map-container {
+    width: 100%;
+    max-width: 400px; /* Максимальная ширина карты */
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
+    height: 250px;
+    border: 0;
 }
 
 /* Копирайт */
@@ -915,26 +918,42 @@ footer .container {
         padding: 2rem 0 1rem;
     }
     
-    footer .container {
-        justify-content: center;
+    .footer {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .footer-info {
         text-align: center;
+        width: 100%;
     }
     
-    .footer-info, 
-    .footer-social {
-        flex: 0 1 100%;
-        text-align: center;  /* Центрируем на мобилках */
-    }
-    
-    .footer-info p {
-        justify-content: center;
-    }
-    
-    .footer-social a {
+    .footer-info a {
         margin: 0.3rem 0.5rem;
     }
     
-    .footer-social a:hover {
-        transform: translateY(-2px);
+    /* На мобильных всё центрируем */
+    .footer-social {
+        align-items: center; /* Центрируем содержимое */
+        width: 100%;
+    }
+    
+    .footer-social h3 {
+        text-align: center; /* Заголовок по центру */
+    }
+    
+    .map-container {
+        margin: 0 auto; /* Центрируем карту */
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-container {
+        max-width: 280px;
+    }
+    
+    .map-container iframe {
+        height: 220px;
     }
 }
