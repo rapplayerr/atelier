@@ -1,1 +1,62 @@
 {% extends 'main/layout.html' %}
+{% block title %}Контакты - {{ tailor_shop }}{% endblock %}
+
+{% block content %}
+<div class="contacts-page">
+    <div class="container">
+        <h1 class="contacts-title">Контакты</h1>
+        
+        <!-- Контактная информация в одну колонку -->
+        <div class="contacts-info-single">
+            <!-- Адрес и метро -->
+            <div class="contact-block">
+                <h2>Адрес</h2>
+                <p class="contact-address">{{ contact_info.address }}</p>
+                <p class="contact-metro">{{ contact_info.metro }}</p>
+            </div>
+            
+            <!-- Телефон и email -->
+            <div class="contact-block">
+                <h2>Связь</h2>
+                <p class="contact-phone">
+                    <a href="tel:{{ contact_info.phone|cut:' '|cut:'('|cut:')'|cut:'-' }}">{{ contact_info.phone }}</a>
+                </p>
+                <p class="contact-email">
+                    <a href="mailto:{{ contact_info.email }}">{{ contact_info.email }}</a>
+                </p>
+            </div>
+            
+            <!-- Расписание (как на главной) -->
+            <div class="contact-block">
+                <h2>Часы работы</h2>
+                <div class="schedule">
+                    <!-- Будни -->
+                    <div class="schedule-row">
+                        <span class="schedule-days">Пн - Чт</span>
+                        <span class="schedule-time">10:00 - 18:00</span>
+                    </div>
+                    
+                    <!-- Пятница -->
+                    <div class="schedule-row">
+                        <span class="schedule-days schedule-days--short">Пятница</span>
+                        <span class="schedule-time">10:00 - 16:00</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Соцсети (только логотипы) -->
+            <div class="contact-block">
+                <h2>Мы в соцсетях</h2>
+                <div class="social-links-contacts">
+                    {% for social in social_links %}
+                    <a href="{{ social.url }}" target="_blank" rel="noopener noreferrer" class="social-link-contacts">
+                        <span class="social-icon">{{ social.icon }}</span>
+                        <span class="social-name">{{ social.name }}</span>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

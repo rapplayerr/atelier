@@ -957,3 +957,202 @@ footer .container {
         height: 220px;
     }
 }
+
+
+
+
+/* ===== Страница контактов ===== */
+.contacts-page {
+    padding: 4rem 0 6rem;
+    background: transparent;
+}
+
+.contacts-page .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.contacts-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 3.5rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+}
+
+/* Контактная информация в одну колонку */
+.contacts-info-single {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* Блок контактов */
+.contact-block {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(2px);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.1);
+}
+
+.contact-block h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    border-bottom: 2px solid rgba(44, 62, 80, 0.1);
+    padding-bottom: 0.8rem;
+}
+
+/* Адрес и метро */
+.contact-address {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.contact-metro {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #2c3e50;
+    opacity: 0.8;
+    display: inline-block;
+    background: rgba(44, 62, 80, 0.1);
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+    margin-top: 0.5rem;
+}
+
+/* Телефон и email */
+.contact-phone,
+.contact-email {
+    margin: 1rem 0;
+}
+
+.contact-phone a,
+.contact-email a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    color: #2c3e50;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease;
+    font-weight: 500;
+}
+
+.contact-phone a:hover,
+.contact-email a:hover {
+    border-bottom-color: #2c3e50;
+}
+
+/* Расписание в контактах */
+.contacts-page .schedule {
+    max-width: 100%;
+    margin: 0;
+    box-shadow: 0 5px 15px rgba(44, 62, 80, 0.05);
+}
+
+/* Соцсети - статика с небольшим свечением при наведении */
+.social-links-contacts {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.social-link-contacts {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background: rgba(44, 62, 80, 0.05);
+    border-radius: 50px;
+    color: #2c3e50;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(44, 62, 80, 0.1);
+}
+
+.social-link-contacts:hover {
+    background: rgba(44, 62, 80, 0.1);
+    box-shadow: 0 0 12px rgba(44, 62, 80, 0.2); /* Небольшое свечение */
+}
+
+.social-icon {
+    margin-right: 0.8rem;
+    font-size: 1.3rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .contacts-title {
+        font-size: 2.5rem;
+    }
+    
+    .contact-block {
+        padding: 1.5rem;
+    }
+    
+    .contact-block h2 {
+        font-size: 1.5rem;
+    }
+    
+    .contact-phone a,
+    .contact-email a {
+        font-size: 1.1rem;
+    }
+    
+    .social-links-contacts {
+        gap: 0.8rem;
+    }
+    
+    .social-link-contacts {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contacts-page {
+        padding: 2rem 0 4rem;
+    }
+    
+    .contacts-title {
+        font-size: 2rem;
+    }
+    
+    .contacts-info-single {
+        gap: 1.5rem;
+    }
+    
+    .social-links-contacts {
+        flex-direction: column;
+    }
+    
+    .social-link-contacts {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Адаптация расписания для мобильных */
+    .contacts-page .schedule-row {
+        flex-direction: column;
+    }
+    
+    .contacts-page .schedule-days,
+    .contacts-page .schedule-time {
+        text-align: center;
+        border-right: none;
+    }
+}
