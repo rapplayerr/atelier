@@ -1,6 +1,6 @@
 def base_context(request):
     data = {
-        'title': 'Atelier',
+        'tailor_shop': 'Atelier',
         'current_year': 2026,
         
 
