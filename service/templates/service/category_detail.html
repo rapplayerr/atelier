@@ -1,6 +1,9 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 
+{% block title %}{{ category.name }} | {{ tailor_shop }}{% endblock %}
+
+
 {% block content %}
 <section class="category-detail-page">
     <div class="container">
