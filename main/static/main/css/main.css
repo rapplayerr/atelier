@@ -53,9 +53,6 @@ header .logo a {
     letter-spacing: 1px;
     text-decoration: none;
 }
-header h3 {
-    display: none; /* скрываем, так как теперь это верхняя шапка */
-}
 header ul {
     list-style: none;
     display: flex;
@@ -77,14 +74,46 @@ header ul li a {
     margin-top: 0; /* убираем отступ */
 }
 
-header ul li a i {
-    color: #ffd700;
-    font-size: 18px;
-}
-
 header ul li:hover, header ul a:hover{
     color: #a19c9c;
 }
+
+/* Адаптация для мобильных устройств */
+@media screen and (max-width: 768px) {
+    header .logo-cont {
+        width: 100%; /* Растягиваем контейнер с лого и названием на всю ширину */
+        justify-content: flex-start; /* Оставляем содержимое слева */
+        margin-bottom: 15px; /* Отступ снизу перед навигацией */
+    }
+    
+    header {
+        display: flex;
+        flex-direction: column; /* Выстраиваем всё вертикально */
+        align-items: flex-start; /* Прижимаем к левому краю */
+        padding: 15px; /* Добавляем отступы по краям */
+    }
+    
+    header ul {
+        width: 100%; /* Навигация на всю ширину */
+        display: flex;
+        flex-wrap: wrap; /* Разрешаем перенос на новую строку, если не помещается */
+        justify-content: space-between; /* Распределяем пункты равномерно */
+        gap: 10px; /* Уменьшаем расстояние между пунктами */
+    }
+    
+    header ul li {
+        flex: 1 1 auto; /* Позволяем пунктам занимать доступное место */
+        text-align: center; /* Центрируем текст внутри пунктов */
+    }
+    
+    header ul li a {
+        padding: 8px 10px; /* Немного уменьшаем отступы */
+        font-size: 14px; /* Уменьшаем размер шрифта */
+        justify-content: center; /* Центрируем иконку и текст внутри ссылки */
+    }
+}
+
+
 main .features {
     float: left;
     color:#1a1a1a;
@@ -225,9 +254,9 @@ main .features p {max-width: 420px; margin: 20px auto;}
         font-size: 2.2rem;
     }
     
-    .schedule-row {
+    /* .schedule-row {
         flex-direction: column;  /* на маленьких экранах дни и время друг под другом */
-    }
+    } */
     
     .schedule-days {
         border-right: none;
@@ -247,7 +276,6 @@ main .features p {max-width: 420px; margin: 20px auto;}
         right: 0;
         bottom: auto;
     }
-}
 
 
 .advantages {
@@ -662,10 +690,13 @@ main .features p {max-width: 420px; margin: 20px auto;}
 
 /* Левая колонка - название и описание (как schedule-days) */
 .category-detail-page .service-info {
-    flex: 2;
+    width: 550px;
     padding: 1.5rem 2rem;
     background-color: rgba(255, 255, 255, 0.7);
     border-right: 1px solid rgba(44, 62, 80, 0.1);
+    text-align: left;
+    word-wrap: break-word; /* Добавляем перенос слов */
+    overflow-wrap: break-word; /* Современный аналог word-wrap */
 }
 
 .category-detail-page .service-info h3 {
@@ -674,6 +705,9 @@ main .features p {max-width: 420px; margin: 20px auto;}
     font-size: 1.2rem;
     color: #2c3e50;
     margin-bottom: 0.5rem;
+    text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .category-detail-page .service-description {
@@ -683,16 +717,22 @@ main .features p {max-width: 420px; margin: 20px auto;}
     color: #5a5a5a;
     line-height: 1.5;
     margin: 0;
+    text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Правая колонка - цена (как schedule-time) */
 .category-detail-page .service-price {
-    flex: 1;
+    width: 250px;
     padding: 1.5rem 2rem;
     background-color: rgba(255, 255, 255, 0.7);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    text-align: left;
+    word-wrap: break-word; /* Добавляем перенос слов */
+    overflow-wrap: break-word; /* Современный аналог word-wrap */
 }
 
 .category-detail-page .price {
@@ -700,9 +740,12 @@ main .features p {max-width: 420px; margin: 20px auto;}
     font-weight: 600;
     font-size: 1.3rem;
     color: #2c3e50;
-    white-space: nowrap;
+    white-space: normal; /* Меняем с nowrap на normal */
+    text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%; /* Ограничиваем максимальную ширину */
 }
-
 
 /* Сообщение об отсутствии услуг */
 .category-detail-page .services-list p {
@@ -740,22 +783,43 @@ main .features p {max-width: 420px; margin: 20px auto;}
 
 @media (max-width: 600px) {
     .category-detail-page .service-item {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
     }
     
     .category-detail-page .service-info {
-        border-right: none;
-        border-bottom: 1px solid rgba(44, 62, 80, 0.1);
-        padding: 1.2rem 1.5rem 0.8rem;
+        flex: 1;
+        border-right: 1px solid rgba(44, 62, 80, 0.1);
+        border-bottom: none;
+        padding: 1.2rem 1.5rem;
+        text-align: left;
+        min-width: 0;
     }
     
     .category-detail-page .service-price {
-        padding: 0.8rem 1.5rem 1.2rem;
+        flex: 0 0 180px; /* Увеличил ширину с 120px до 180px */
+        padding: 1.2rem 1.5rem;
         justify-content: flex-start;
+        text-align: left;
+        min-width: 0;
+    }
+    
+    .category-detail-page .service-price .price {
+        display: inline-block;
+        max-width: 100%;
+        white-space: normal; /* Разрешаем перенос на новую строку */
+        line-height: 1.4;
+        /* Убрал word-wrap: break-word */
     }
     
     .category-detail-page .service-info h3 {
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.5rem;
+        /* Убрал word-wrap: break-word */
+    }
+    
+    .category-detail-page .service-description {
+        /* Убрал word-wrap: break-word */
     }
 }
 
@@ -772,6 +836,10 @@ main .features p {max-width: 420px; margin: 20px auto;}
     .category-detail-page .service-info,
     .category-detail-page .service-price {
         padding: 1rem 1.2rem;
+    }
+    
+    .category-detail-page .service-price {
+        flex: 0 0 150px; /* Увеличил с 100px до 150px */
     }
     
     .category-detail-page .service-info h3 {
@@ -914,47 +982,11 @@ footer .container {
 
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
-    footer {
-        padding: 2rem 0 1rem;
-    }
-    
-    .footer {
-        flex-direction: column;
-        gap: 2rem;
-    }
-    
-    .footer-info {
-        text-align: center;
-        width: 100%;
-    }
-    
-    .footer-info a {
-        margin: 0.3rem 0.5rem;
-    }
-    
-    /* На мобильных всё центрируем */
-    .footer-social {
-        align-items: center; /* Центрируем содержимое */
-        width: 100%;
-    }
-    
-    .footer-social h3 {
+    .footer-info h3 {
         text-align: center; /* Заголовок по центру */
     }
-    
-    .map-container {
-        margin: 0 auto; /* Центрируем карту */
-        max-width: 350px;
-    }
-}
-
-@media (max-width: 480px) {
-    .map-container {
-        max-width: 280px;
-    }
-    
-    .map-container iframe {
-        height: 220px;
+    .footer-social h3 {
+        text-align: center; /* Заголовок карты по центру */
     }
 }
 
