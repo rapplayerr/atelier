@@ -817,10 +817,6 @@ main .features p {max-width: 420px; margin: 20px auto;}
         margin-bottom: 0.5rem;
         /* Убрал word-wrap: break-word */
     }
-    
-    .category-detail-page .service-description {
-        /* Убрал word-wrap: break-word */
-    }
 }
 
 @media (max-width: 480px) {
