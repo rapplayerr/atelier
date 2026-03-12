@@ -1,15 +1,48 @@
+# Виртуальное окружение
 venv/
+.venv/
 env/
 ENV/
-*.sqlite3
-*.db
-db.sqlite3
-__pycache__/
+
+# Python
 *.pyc
+__pycache__/
 *.pyo
 *.pyd
+.Python
+
+# База данных
+*.sqlite3
+*.db
+
+# Django
 *.log
+local_settings.py
+media/
+staticfiles/
+
+# Секретные файлы
 .env
 .env.local
+.env.production
+.env.development
+
+# IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+
+# Docker и PaaS
+Dockerfile
+docker-compose*.yml
+.dockerignore
+Procfile
+Procfile.*
+app.json
+heroku.yml
+northflank.yml
+
+# OS
+.DS_Store
+Thumbs.db
